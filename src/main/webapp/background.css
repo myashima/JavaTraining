@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+body {
+	background-image: url("jpg/うさぎポスト.png");
+	background-repeat: repeat;
+	background-size: 25%;
+	background-blend-mode: screen;
+}
+
+body {
+	background-color: #ffff99;
+}
