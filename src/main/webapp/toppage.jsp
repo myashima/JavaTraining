@@ -24,7 +24,7 @@ body {
 		<form action="/Ensyu/LoginServlet" method="post">
 			<p>
 				<font face="Comic Sans MS">LoginID：</font>
-				<input type="text" name="id" size="20" placeholder="ログインID(半角英数字)">
+				<input type="text" name="id" size="20" placeholder="ログインID(半角英数字)" >
 			</p>
 			<p>
 				<font face="Comic Sans MS">Password：</font>
