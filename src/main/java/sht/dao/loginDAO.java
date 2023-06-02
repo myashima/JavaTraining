@@ -162,7 +162,6 @@ public class loginDAO {
 			}
 		}
 	}
-
 	public List<UserBean> random( String area, String spring, String summer, String autumn, String winter ) throws DAOException{
 		//DBへの接続が出来ていない場合にDBへ接続を行う
 		if(con == null){
@@ -183,6 +182,38 @@ public class loginDAO {
 				sql = "SELECT * FROM kankouchi WHERE area = ? ORDER BY RAND() LIMIT 10";
 				st = con.prepareStatement(sql);
 				st.setString(1, area);
+			}
+			
+			//地域未選択の場合
+			else if ( area == null) {
+				//SQL文の作成
+				sql = "SELECT * FROM kankouchi a WHERE a.spring = ? or a.summer = ? or a.autumn = ? or a.winter = ? ORDER BY RAND() LIMIT 10";
+				//PreparedStatementオブジェクトの取得
+				st = con.prepareStatement(sql);
+				//各変数を設定
+				st.setString(1, spring);
+				st.setString(2, summer);
+				st.setString(3, autumn);
+				st.setString(4, winter);
+			
+			//SQLの実行
+			rs = st.executeQuery();
+			//インスタンス化
+			List<UserBean> list = new ArrayList<UserBean>();
+			//1レコードずつ取得
+			while(rs.next()){
+				String strspot = rs.getString("spot");
+				String strpref = rs.getString("pref");
+				
+				UserBean bean = new UserBean();
+				//beanに代入
+				bean.setSpot(strspot);
+				bean.setPref(strpref);
+				// 返却用のリストに抽出した旅行先を追加
+				list.add(bean);
+			}
+			//旅行先をlistで返す
+			return list;
 			}
 			else {
 				//SQL文の作成
@@ -216,7 +247,7 @@ public class loginDAO {
 			//旅行先をlistで返す
 			// ※今回は10件選出するためList
 			return list;
-
+	
 		}catch(Exception e){
 			e.printStackTrace();
 			throw new DAOException("レコードの取得に失敗しました。");
@@ -275,6 +306,8 @@ public class loginDAO {
 			}
 		}
 	}
+	
+	
 	public void random(String spot, String pref) {
 		// TODO 自動生成されたメソッド・スタブ
 

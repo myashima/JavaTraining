@@ -139,12 +139,12 @@ public class LoginServlet extends HttpServlet {
 			}
 			else if(action.equals("random")){
 
-				//地域と季節未選択
-				if( request.getParameter("area") == null ) {
-					request.setAttribute("message", "※地域を選択してください。");
-					gotoPage(request,response,"/login-result.jsp");
-					return;
-				}
+//				//地域と季節未選択
+//				if( request.getParameter("area") == null ) {
+//					request.setAttribute("message", "※地域を選択してください。");
+//					gotoPage(request,response,"/login-result.jsp");
+//					return;
+//				}
 
 				// リクエストパラメータの読み込み
 				// 春夏秋冬
@@ -165,20 +165,8 @@ public class LoginServlet extends HttpServlet {
 
 				gotoPage(request,response,"/showspot.jsp");
 			}
-			else if(action.equals("select")){
-
-				String spot = request.getParameter("spot");
-				String pref = request.getParameter("pref");
-
-				List<UserBean> list = dao.select(spot, pref);
-				//リクエストスコープにListを設定
-				request.setAttribute("show", list);
-
-				gotoPage(request,response,"/showspot2.jsp");
-
-			}
-
-		}catch(DAOException e) {
+		}
+			catch(DAOException e) {
 			e.printStackTrace();
 			request.setAttribute("message","内部エラーが発生しました。");
 			gotoPage(request,response,"/errInternal.jsp");

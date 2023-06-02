@@ -36,21 +36,21 @@ body {
 					<label><input type="checkbox" name="winter" value="冬">冬</label>
 				</div>
 				<div>
-					<label><input type="radio" name="area" value="北海道">北海道</label>
-					<label><input type="radio" name="area" value="東北">東北</label>
-					<label><input type="radio" name="area" value="関東">関東</label>
-					<label><input type="radio" name="area" value="甲信越">甲信越</label>
+					<label><input type="checkbox" name="area" value="北海道">北海道</label>
+					<label><input type="checkbox" name="area" value="東北">東北</label>
+					<label><input type="checkbox" name="area" value="関東">関東</label>
+					<label><input type="checkbox" name="area" value="甲信越">甲信越</label>
 				</div>
 				<div>
-					<label><input type="radio" name="area" value="北陸">北陸</label>
-					<label><input type="radio" name="area" value="東海">東海</label>
-					<label><input type="radio" name="area" value="関西">関西</label>
-					<label><input type="radio" name="area" value="中国">中国</label>
+					<label><input type="checkbox" name="area" value="北陸">北陸</label>
+					<label><input type="checkbox" name="area" value="東海">東海</label>
+					<label><input type="checkbox" name="area" value="関西">関西</label>
+					<label><input type="checkbox" name="area" value="中国">中国</label>
 				</div>
 				<div>
-					<label><input type="radio" name="area" value="四国">四国</label>
-					<label><input type="radio" name="area" value="九州">九州</label>
-					<label><input type="radio" name="area" value="沖縄">沖縄</label>
+					<label><input type="checkbox" name="area" value="四国">四国</label>
+					<label><input type="checkbox" name="area" value="九州">九州</label>
+					<label><input type="checkbox" name="area" value="沖縄">沖縄</label>
 				</div>
 				<p>
 					<input type="submit" value="表示" class="button"> <input
